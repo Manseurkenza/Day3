@@ -1,0 +1,48 @@
+let country = [];
+
+function createCity(country, cityName) {
+    let city = [cityName, []];     country.push(city); }
+
+function createHousing(country, cityName, housingName) {
+    let city = getCityOfCountry(country, cityName);
+    if (city) {
+        let housing = [housingName, []];         city[1].push(housing); 
+    } else {
+        console.log("Failure to get city: " + cityName);
+        return null; 
+    }
+}
+function addCharacteristics(country, cityName, housingName, ...characteristics) {
+    let city = getCityOfCountry(country, cityName);
+    if (city) {
+        let housing = city[1].find(h => h[0] === housingName); 
+        if (housing) {
+            housing[1] = characteristics;         } else {
+            console.log("Failure to get housing: " + housingName);
+            return null;         }
+    } else {
+        console.log("Failure to get city: " + cityName);
+        return null; 
+    }
+}
+function getCityOfCountry(country, cityName) {
+    return country.find(city => city[0] === cityName) || null; }
+function getCharacteristicsOfHousing(country, cityName, housingName) {
+    let city = getCityOfCountry(country, cityName);
+    if (city) {
+        let housing = city[1].find(h => h[0] === housingName);         if (housing) {
+            return housing[1]; 
+        } else {
+            console.log("Failure to get housing: " + housingName);
+            return null;         }
+    } else {   console.log("Failure to get city: " + cityName);
+        return null; }}
+createCity(country, "Nantes");
+createHousing(country, "Nantes", "Apartment1");
+addCharacteristics(country, "Nantes", "Apartment1", "100 m2", "2 bathrooms", "Red paint", "14 rue Arthur III");
+console.log(getCharacteristicsOfHousing(country, "Nantes", "Apartment1"));
+console.log(country);
+
+
+
+

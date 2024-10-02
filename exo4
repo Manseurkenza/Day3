@@ -1,0 +1,6 @@
+function capitalize(words) {
+    return words.map(word => word.trim().toUpperCase());
+}
+
+const result = [' bonjour ', 'wassini ', 'bonne ' , 'journnee '];
+console.log(capitalize(result)); 

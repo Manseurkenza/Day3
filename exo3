@@ -1,0 +1,13 @@
+function fillBus(peopleAtBusStops, busSeats) {
+    let currentCapacity = 0;
+
+    for (let i = 0; i < peopleAtBusStops.length; i++) {
+        currentCapacity += peopleAtBusStops[i];
+
+        if (currentCapacity >= busSeats) {
+            return i; 
+        }
+    }
+
+    return -1; 
+}

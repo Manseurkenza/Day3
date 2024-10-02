@@ -1,0 +1,15 @@
+function findHousing(housingToFind, housingList) {
+  let index = 0
+  let found = null
+
+  while (index < housingList.length) {
+    if (housingList[index].toLowerCase() === housingToFind.toLowerCase()) {
+      found = [index, housingList[index]]
+    }
+    index++
+  }
+  return found
+}
+console.log("I'm debugging")
+displayResult([7, "Flat"])
+

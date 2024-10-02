@@ -1,0 +1,11 @@
+function getAngryDog(woofNumber) {
+  
+  for (var kenza = 0; kenza < woofNumber; kenza++) {
+    result += 'woof';
+  }
+  return result;
+}
+
+
+var result = getAngryDog(4);
+displayResult(result);

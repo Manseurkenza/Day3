@@ -1,0 +1,19 @@
+function houseEnergyScore(housingList) {    const grades = [
+        { max: 51, grade: 'A' },
+        { max: 90, grade: 'B' },
+        { max: 150, grade: 'C' },
+        { max: 230, grade: 'D' },
+        { max: 330, grade: 'E' },
+        { max: 450, grade: 'F' },
+        { max: Infinity, grade: 'G' }
+    ];
+    const result = housingList.map(([type, consumption]) => { const consumptionValue = Number(consumption); const grade = grades.find(g => consumptionValue < g.max).grade;
+  return [type, consumptionValue, grade];
+    });
+    result.sort((a, b) => a[1] - b[1]);    return result;
+}
+if (typeof houseEnergyScore === "function") {
+    const scores = [["Hutch", 30], ["Loft", 345], ["Castle", 560], ["Igloo", 12], ["Villa", 232], ["Flat", 212]];
+    const result = houseEnergyScore(scores);
+    displayResult(result);
+}
